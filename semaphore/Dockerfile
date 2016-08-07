@@ -2,8 +2,7 @@ FROM centos
 
 EXPOSE 3000
 
-RUN yum -y update && \
-    yum -y install git epel-release && \
+RUN yum -y install git epel-release && \
     yum -y install ansible && \
     yum clean all && \
     rm /var/log/yum.log
