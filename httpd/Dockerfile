@@ -6,7 +6,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY semaphore.conf /usr/local/apache2/conf/extra/semaphore.conf
-COPY index.html /usr/local/apache2/htdocs/index.html
 COPY generate-ssl-certificate.sh /root/generate-ssl-certificate.sh
 COPY httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 COPY httptohttps.conf /usr/local/apache2/conf/extra/httptohttps.conf 
