@@ -26,4 +26,5 @@ RUN echo "Include conf/extra/httptohttps.conf" >> /usr/local/apache2/conf/httpd.
 RUN sed -i "s/ServerName .*/ServerName ${SERVERNAME}/" /usr/local/apache2/conf/extra/httpd-ssl.conf
 RUN sed -i "s/ServerAdmin .*/ServerAdmin ${SERVERADMIN}/" /usr/local/apache2/conf/extra/httpd-ssl.conf
 
-CMD /bin/sh /root/generate-ssl-certificate.sh && httpd-foreground
+# Wait until the host "semaphore" is available on port 3000
+CMD while [ $(timeout 1 bash -c 'cat < /dev/null > /dev/tcp/mysql/3306' 2> /dev/null ; echo $?) != 0 ] ; do sleep 1 ; done ; /bin/sh /root/generate-ssl-certificate.sh && httpd-foreground

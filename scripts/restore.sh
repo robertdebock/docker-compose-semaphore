@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 restoredatabase() {
   docker exec -i mysql mysql -usemaphore -p"semaphore" < data/database.mysql
