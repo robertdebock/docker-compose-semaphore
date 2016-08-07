@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d data ] ; then
+  mkdir data
+fi
+
 backupdatabase() {
   docker exec mysql sh -c 'exec mysqldump --all-databases -usemaphore -p"semaphore"' > data/database.mysql
 }
