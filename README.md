@@ -14,6 +14,8 @@ In order to run this application, run these commands:
     cd docker-compose-semaphore
     docker-compose up
 
+When started, press CTRL+C or "docker-compose stop" to (temporarily) stop it. When using "docker-compose start", all persistent data will be in tact.
+
 ## Customizing the application
 You may want to customize variables.env, where you can add Apache HTTPD settings like so:
 
@@ -30,3 +32,5 @@ You may want to customize variables.env, where you can add Apache HTTPD settings
 Two scripts have been added:
 - scripts/backup.sh - Backs up: mysql, /tmp and /root/.ssh/
 - scripts/restore.sh - Restores the backup.
+
+Restoring is only required when the volumes have been removed, so either because "docker-compose down" was issued of when the Docker engine has been changed.

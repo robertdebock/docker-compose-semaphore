@@ -1,2 +1,3 @@
 data/database.mysql
 data/tmp.tar.gz
+.DS_Store
