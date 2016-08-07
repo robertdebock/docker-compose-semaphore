@@ -1,0 +1,23 @@
+version: '2'
+services:
+  httpd:
+    build: ./httpd
+    env_file: "variables.env"
+    container_name: httpd
+    links:
+      - semaphore
+    ports:
+      - 80:80
+      - 443:443
+  semaphore:
+    build: ./semaphore
+    env_file: "variables.env"
+    container_name: semaphore
+    links:
+      - mysql
+  mysql:
+    image: mysql
+    env_file: "variables.env"
+    container_name: mysql
+    volumes:
+      - ./mysql/data:/docker-entrypoint-initdb.d

@@ -1,0 +1,17 @@
+{
+ 	"mysql": {
+ 		"host": "mysql:3306",
+ 		"user": "semaphore",
+ 		"pass": "semaphore",
+ 		"name": "semaphore"
+ 	},
+ 	"port": "",
+ 	"bugsnag_key": "",
+ 	"tmp_path": "/tmp",
+ 	"cookie_hash": "ycjdJg1pd94FX/+Qnjr7yqHYReolU1thJKHHgWFrvdY=",
+ 	"cookie_encryption": "h5Zwla13mCpPDIl44yacNiWUj0UBxsyFJZ22dnRuG58="
+}
+"mandrill": {
+	"username": "semaphore",
+	"password": "semaphore"
+},
