@@ -1,2 +1,2 @@
-semaphore/ssh_config
-data
+data/database.mysql
+data/tmp.tar.gz
