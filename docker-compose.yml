@@ -3,7 +3,7 @@ services:
   httpd:
     build: ./httpd
     env_file: "variables.env"
-    container_name: httpd
+    container_name: semaphore-httpd
     links:
       - semaphore
     ports:
@@ -18,6 +18,6 @@ services:
   mysql:
     image: mysql
     env_file: "variables.env"
-    container_name: mysql
+    container_name: semaphore-mysql
     volumes:
       - ./mysql/data:/docker-entrypoint-initdb.d
