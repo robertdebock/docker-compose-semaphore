@@ -16,6 +16,10 @@ In order to run this application, run these commands:
 
 When started, press CTRL+C or "docker-compose stop" to (temporarily) stop it. When using "docker-compose start", all persistent data will be in tact.
 
+Login with the default username / password combination:
+- username: semaphore
+- password: semaphore
+
 ## Customizing the application
 You may want to customize variables.env, where you can add Apache HTTPD settings like so:
 
