@@ -24,13 +24,13 @@ Login with the default username / password combination:
 You may want to customize variables.env, where you can add Apache HTTPD settings like so:
 
     SERVERNAME=semaphore.meinit.nl:443
-    SERVERADMIN robert@meinit.nl
-    SSL_COUNTRY NL
-    SSL_STATE UTRECHT
-    SSL_LOCATION Breukelen
-    SSL_ORGANIZATION Me in IT Consultancy
-    SSL_ORGANIZATIONAL_UNIT IT Department
-    SSL_COMMONNAME semaphore.meinit.nl
+    SERVERADMIN=robert@meinit.nl
+    SSL_COUNTRY=NL
+    SSL_STATE=UTRECHT
+    SSL_LOCATION=Breukelen
+    SSL_ORGANIZATION=Me in IT Consultancy
+    SSL_ORGANIZATIONAL_UNIT=IT Department
+    SSL_COMMONNAME=semaphore.meinit.nl
 
 ## Managing the application
 Two scripts have been added:
