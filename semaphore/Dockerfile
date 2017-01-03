@@ -7,7 +7,7 @@ RUN yum -y install git epel-release && \
     yum clean all && \
     rm /var/log/yum.log
 
-RUN curl -L https://github.com/ansible-semaphore/semaphore/releases/download/v2.0.4/semaphore_linux_amd64 > /usr/bin/semaphore && \
+RUN curl -L https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64 > /usr/bin/semaphore && \
     chmod 750 /usr/bin/semaphore
 
 ADD semaphore.json /etc/semaphore.json
