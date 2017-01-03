@@ -7,8 +7,8 @@ install:
   - echo "Waiting for Drupal to become availale."
   - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost/) ; do echo -n "." ; sleep 1 ; done
 
-#script:
-#  - bats tests/
+script:
+  - bats tests/
 
 #after_success:
 #  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
