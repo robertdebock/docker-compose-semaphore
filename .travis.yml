@@ -1,0 +1,21 @@
+services:
+  - docker
+
+install:
+  - docker-compose build
+  - docker-compose up -d
+  - echo "Waiting for Drupal to become availale."
+  - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost/) ; do echo -n "." ; sleep 1 ; done
+
+#script:
+#  - bats tests/
+
+#after_success:
+#  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+#  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+#  - docker build . -t docker-drupal:latest
+#  - docker build . -t $REPO:$TAG
+#  - docker push $REPO
+
+notifications:
+email: false
