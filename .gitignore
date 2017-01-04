@@ -1,4 +1,5 @@
 data/database.mysql
 data/tmp.tar.gz
 data/root.ssh.tar.gz
+tests/cookies.txt
 .DS_Store
