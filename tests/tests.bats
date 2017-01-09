@@ -8,8 +8,18 @@
   [ "${status}" -eq 0 ]
 }
 
+@test "Creating \"My User\"." {
+  run curl --fail --insecure --request POST --header "Content-Type: application/json" --data '{"username":"myuser","name":"My User","email":"myuser@example.com"}' --cookie cookies.txt https://localhost/api/users
+  [ "${status}" -eq 0 ]
+}
+
 @test "Creating \"My Project\"." {
   run curl --fail --insecure --request POST --header "Content-Type: application/json" --data '{"name":"My Project"}' --cookie cookies.txt https://localhost/api/projects
+  [ "${status}" -eq 0 ]
+}
+
+@test "Adding \"My User\" to the team in \"My Project\"." {
+  run curl --fail --insecure --request POST --header "Content-Type: application/json" --data '{"username":"myuser","name":"My User","email":"myuser@example.com","user_id":2}' --cookie cookies.txt https://localhost/api/project/1/users
   [ "${status}" -eq 0 ]
 }
 
@@ -65,8 +75,18 @@
   [ "${status}" -eq 0 ]
 }
 
+@test "Deleting \"My User\" from the team in \"My Project\"." {
+  run curl --fail --insecure --request DELETE --cookie cookies.txt https://localhost/api/project/1/users/2
+  [ "${status}" -eq 0 ]
+}
+
 @test "Deleting \"My Project\"." {
   run curl --fail --insecure --request DELETE --cookie cookies.txt https://localhost/api/project/1
+  [ "${status}" -eq 0 ]
+}
+
+@test "Deleting \"My User\"." {
+  run curl --fail --insecure --request DELETE --cookie cookies.txt https://localhost/api/users/2
   [ "${status}" -eq 0 ]
 }
 
