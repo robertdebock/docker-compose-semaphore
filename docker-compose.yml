@@ -4,8 +4,6 @@ services:
     build: ./httpd
     env_file: "variables.env"
     container_name: semaphore-httpd
-    links:
-      - semaphore
     ports:
       - 80:80
       - 443:443
@@ -13,8 +11,6 @@ services:
     build: ./semaphore
     env_file: "variables.env"
     container_name: semaphore
-    links:
-      - mysql
   mysql:
     image: mysql
     env_file: "variables.env"
