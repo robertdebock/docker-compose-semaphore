@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/robertdebock/docker-compose-semaphore.svg?branch=master)](https://travis-ci.org/robertdebock/docker-compose-semaphore) [![](https://images.microbadger.com/badges/image/robertdebock/semaphore.svg)](https://microbadger.com/images/robertdebock/semaphore "Get your own image badge on microbadger.com")
+
 # docker-compose-semaphore
 
 A set of dockerized apps to support Semaphore, a web application for Ansible.
