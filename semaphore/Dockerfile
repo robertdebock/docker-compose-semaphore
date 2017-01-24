@@ -2,7 +2,7 @@ FROM alpine
 
 EXPOSE 3000
 
-RUN apk add --no-cache ansible git bash
+RUN apk add --no-cache ansible git bash curl
 
 RUN curl -L https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64 > /usr/bin/semaphore && \
     chmod 750 /usr/bin/semaphore
