@@ -1,17 +1,17 @@
-FROM centos
+FROM alpine
 
 EXPOSE 3000
 
-RUN yum -y install git epel-release && \
-    yum -y install ansible && \
-    yum clean all && \
-    rm /var/log/yum.log
+RUN apk add --no-cache ansible git curl
 
-RUN curl -L https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64 > /usr/bin/semaphore && \
-    chmod 750 /usr/bin/semaphore
+ADD https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64 /usr/bin/semaphore
+ADD https://github.com/maxcnunes/waitforit/releases/download/v1.4.0/waitforit-linux_amd64 /waitforit
 
 ADD semaphore.json /etc/semaphore.json
 ADD answers /answers
 
+RUN chmod +x /usr/bin/semaphore
+RUN chmod +x /waitforit
+
 # Wait until the host "mysql" is available on port 3306.
-CMD while [ $(timeout 1 bash -c 'cat < /dev/null > /dev/tcp/mysql/3306' 2> /dev/null ; echo $?) != 0 ] ; do sleep 1 ; done ; /usr/bin/semaphore -setup < /answers ; /usr/bin/semaphore -config /etc/semaphore.json
+CMD /waitforit -host=mysql -port=3306 -timeout=120 && /usr/bin/semaphore -setup < /answers ; /usr/bin/semaphore -config /etc/semaphore.json
