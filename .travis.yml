@@ -5,6 +5,7 @@ install:
   - docker-compose build
   - docker-compose up -d
   - echo "Waiting for Semaphore to become availale."
+  - sleep 30
   - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost/) ; do echo -n "." ; sleep 1 ; done
 
 script:
