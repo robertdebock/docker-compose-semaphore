@@ -1,11 +1,14 @@
 FROM alpine
 
+ENV WAITFORIT_VERSION="v1.4.0"
+ENV SEMAPHORE_VERSION="v2.1.0"
+
 EXPOSE 3000
 
 RUN apk add --no-cache ansible git curl
 
-ADD https://github.com/ansible-semaphore/semaphore/releases/download/v2.1.0/semaphore_linux_amd64 /usr/bin/semaphore
-ADD https://github.com/maxcnunes/waitforit/releases/download/v1.4.0/waitforit-linux_amd64 /waitforit
+ADD https://github.com/ansible-semaphore/semaphore/releases/download/$SEMAPHORE_VERSION/semaphore_linux_amd64 /usr/bin/semaphore
+ADD https://github.com/maxcnunes/waitforit/releases/download/$WAITFORIT_VERSION/waitforit-linux_amd64 /waitforit
 
 ADD semaphore.json /etc/semaphore.json
 ADD answers /answers
