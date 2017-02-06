@@ -9,6 +9,30 @@ There are three applications:
 - Semaphore - the application itself.
 - MySQL - to store persistent data
 
+## Overview of the environment
+
+    +-----------+
+    |  VISITOR  |
+    +-----------+
+          |
+    80/tcp, 443/tcp
+          |
+    +-----------+
+    |   nginx   |
+    +-----------+
+          |
+       5000/tcp
+          |
+    +-----------+
+    | semaphore |
+    +-----------+
+          |
+       3306/tcp
+          |
+    +-----------+
+    |   mysql   |
+    +-----------+
+
 ## Running the application
 In order to run this application, run these commands:
 
