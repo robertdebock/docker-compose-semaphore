@@ -11,27 +11,9 @@ There are three applications:
 
 ## Overview of the environment
 
-    +-----------+
-    |  VISITOR  |
-    +-----------+
-          |
-    80/tcp, 443/tcp
-          |
-    +-----------+
-    |   nginx   |
-    +-----------+
-          |
-       5000/tcp
-          |
-    +-----------+
-    | semaphore |
-    +-----------+
-          |
-       3306/tcp
-          |
-    +-----------+
-    |   mysql   |
-    +-----------+
+    +-------+     +-----------+     +-------+
+    | httpd | --> | semaphore | --> | mysql |
+    +-------+     +-----------+     +-------+
 
 ## Running the application
 In order to run this application, run these commands:
