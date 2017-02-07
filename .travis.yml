@@ -10,10 +10,7 @@ install:
 
 script:
   - bats tests/
-  - grep -- '^  [a-z]' docker-compose.yml > a
-  - cut -d: -f1 a > b
-  - xargs b > c
-  - sed 's/ /]->[/g;s/^/[/;s/$/]/' c > input
+  - grep -- '^  [a-z]' docker-compose.yml | xargs | sed 's/://g;s/ /]->[/g;s/^/[/;s/$/]/' > input
   - docker run -v $(pwd):/data tsub/graph-easy /data/input
 
 notifications:
