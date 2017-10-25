@@ -1,4 +1,4 @@
-FROM httpd
+FROM httpd:2.4.29
 
 RUN apt-get update && \
     apt-get install -y libapache2-mod-proxy-html openssl && \
